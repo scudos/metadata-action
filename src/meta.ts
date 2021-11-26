@@ -133,6 +133,7 @@ export class Meta {
     } else {
       vraw = this.context.ref.replace(/^refs\/tags\//g, '').replace(/\//g, '-');
     }
+    vraw = vraw.replace(/-RELEASE/g, '');
     if (!semver.valid(vraw)) {
       core.warning(`${vraw} is not a valid semver. More info: https://semver.org/`);
       return version;
